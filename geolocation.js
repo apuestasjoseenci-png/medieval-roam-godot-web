@@ -7,7 +7,7 @@
   const button = document.createElement('button');
   button.id = 'activate-gps';
   button.textContent = 'Activar GPS';
-  button.style.cssText = 'position:fixed;left:max(24px,env(safe-area-inset-left));top:120px;z-index:20;padding:12px 20px;min-height:48px;color:#fff0cc;background:#203b33;border:1px solid #d4b16f;border-radius:16px;font:16px sans-serif;touch-action:manipulation';
+  button.style.cssText = 'position:fixed;left:max(24px,env(safe-area-inset-left));top:218px;z-index:20;padding:12px 20px;min-height:48px;color:#fff0cc;background:#203b33;border:1px solid #d4b16f;border-radius:16px;font:16px sans-serif;touch-action:manipulation';
   button.setAttribute('aria-label', 'Activar GPS');
   document.body.appendChild(button);
   function emit(event) { if (!disposed && callback) callback(JSON.stringify(event)); }

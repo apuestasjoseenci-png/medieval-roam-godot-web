@@ -1,18 +1,20 @@
 {
   "project": "Medieval Roam",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "godot": "4.7.2.stable",
   "renderer": "Compatibility",
   "web_threads": false,
   "web_extensions": false,
   "pwa": false,
   "geolocation": true,
+  "vector_provider": "MapTiler",
+  "vector_format": "MVT 2.x / PBF",
   "iphone_tested": false,
   "files": [
     {
       "name": "geolocation.js",
       "bytes": 3614,
-      "sha256": "dd02142525090fdae023e9a97a7b18667a3ae1e9555f5c9efa3b154cd0afeb0b"
+      "sha256": "6659571b753423037c8dec11f464590b7d97dde15d368dc11eeaa59ec809a799"
     },
     {
       "name": "index.apple-touch-icon.png",
@@ -31,8 +33,8 @@
     },
     {
       "name": "index.html",
-      "bytes": 5581,
-      "sha256": "4265a7e98ae74852643c1823d2af4f70c98ba82632a17a2f0a8bc5eeb8917458"
+      "bytes": 5582,
+      "sha256": "2b03ae552b45dd7411e5c781914b4b59379a390e17f1344ff30608abd07cc31a"
     },
     {
       "name": "index.icon.png",
@@ -46,8 +48,8 @@
     },
     {
       "name": "index.pck",
-      "bytes": 83448,
-      "sha256": "553cfa5568d1491c0d33b55b70b7d29b1560c46a0122c78096ccf14fd0949b4e"
+      "bytes": 111908,
+      "sha256": "5b5b3210f0ddc03b077c20e805334659999100c1d00c85bd7717be125a635455"
     },
     {
       "name": "index.png",
@@ -58,7 +60,22 @@
       "name": "index.wasm",
       "bytes": 39514754,
       "sha256": "fc74679e3b97f76878947fcd4fbe1268cbfa6188182a2e33bbc3f5dc9bfa57d0"
+    },
+    {
+      "name": "maptiler-config.json",
+      "bytes": 48,
+      "sha256": "4a93d1b07802c76ada8a671ee78b5b27adcda45e4e76c2c54633113920d58771"
+    },
+    {
+      "name": "maptiler.js",
+      "bytes": 10637,
+      "sha256": "e65d70e5dde6881d4ffcb1bf2a31401d01dfc3830b9e1e168431b170fecccc0c"
+    },
+    {
+      "name": "mvt.js",
+      "bytes": 6361,
+      "sha256": "01c4d47342888cf61482cd1505edd2c578907988eba452b3e6a4e5c64bb87e4c"
     }
   ],
-  "total_bytes": 39936630
+  "total_bytes": 39982137
 }
