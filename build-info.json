@@ -1,0 +1,58 @@
+{
+  "project": "Medieval Roam",
+  "version": "0.1.0",
+  "godot": "4.7.2.stable",
+  "renderer": "Compatibility",
+  "web_threads": false,
+  "web_extensions": false,
+  "pwa": false,
+  "iphone_tested": false,
+  "files": [
+    {
+      "name": "index.apple-touch-icon.png",
+      "bytes": 11939,
+      "sha256": "071ccd3c3619e62c9e27995cf1afde427bb1b630767801a0fe1ac33505b2f221"
+    },
+    {
+      "name": "index.audio.position.worklet.js",
+      "bytes": 2973,
+      "sha256": "be33985bc7160d6bf9646f259cd86b259cd67b02ccb297ee5c44f8ac84327bc8"
+    },
+    {
+      "name": "index.audio.worklet.js",
+      "bytes": 7298,
+      "sha256": "5b476a9c9ce642c0ee4256436d1bc31d9c38f868aca0f9a8e2a57c18d2dec2a3"
+    },
+    {
+      "name": "index.html",
+      "bytes": 5581,
+      "sha256": "1b9cd143e51cc538efc699ec3880f83eb3fff504f34d83b542e411fdc387a108"
+    },
+    {
+      "name": "index.icon.png",
+      "bytes": 5765,
+      "sha256": "662f81d7672001a6f5f928532493267c226624757de3b5fa2908f6e5923964b7"
+    },
+    {
+      "name": "index.js",
+      "bytes": 279815,
+      "sha256": "33c94cb3175f3333b82e2a3be5e8e86f77986f0aa2042b1631f6367a4e5bb6ba"
+    },
+    {
+      "name": "index.pck",
+      "bytes": 74148,
+      "sha256": "1310cb30ac7a0dbadf41f0ed2e25971aa089f307a22fa1c16c92e3edefcfdede"
+    },
+    {
+      "name": "index.png",
+      "bytes": 21443,
+      "sha256": "3cb4495c0b98dfbe4b663cbf2b6836473572339beb66d902367893162a70be0e"
+    },
+    {
+      "name": "index.wasm",
+      "bytes": 39514754,
+      "sha256": "fc74679e3b97f76878947fcd4fbe1268cbfa6188182a2e33bbc3f5dc9bfa57d0"
+    }
+  ],
+  "total_bytes": 39923716
+}
