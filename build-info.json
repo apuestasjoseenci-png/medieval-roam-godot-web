@@ -1,6 +1,6 @@
 {
   "project": "Medieval Roam",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "godot": "4.7.2.stable",
   "renderer": "Compatibility",
   "web_threads": false,
@@ -13,8 +13,8 @@
   "files": [
     {
       "name": "geolocation.js",
-      "bytes": 3614,
-      "sha256": "6659571b753423037c8dec11f464590b7d97dde15d368dc11eeaa59ec809a799"
+      "bytes": 3690,
+      "sha256": "2cb40cb6aee75f93823f75f8f7c1256b70cd98f333125d59a6169e00893ff5b4"
     },
     {
       "name": "index.apple-touch-icon.png",
@@ -34,7 +34,7 @@
     {
       "name": "index.html",
       "bytes": 5582,
-      "sha256": "2b03ae552b45dd7411e5c781914b4b59379a390e17f1344ff30608abd07cc31a"
+      "sha256": "132c0c910bfa2e4aed91d69eb7eb015421056113028ebe9394e0421a04cf93cb"
     },
     {
       "name": "index.icon.png",
@@ -48,8 +48,8 @@
     },
     {
       "name": "index.pck",
-      "bytes": 111908,
-      "sha256": "5b5b3210f0ddc03b077c20e805334659999100c1d00c85bd7717be125a635455"
+      "bytes": 145432,
+      "sha256": "33eaac339e2c910db09893288d2fec9d4bf62c3fa348118ad060ddc8165a9b2b"
     },
     {
       "name": "index.png",
@@ -77,5 +77,5 @@
       "sha256": "01c4d47342888cf61482cd1505edd2c578907988eba452b3e6a4e5c64bb87e4c"
     }
   ],
-  "total_bytes": 39982137
+  "total_bytes": 40015737
 }
