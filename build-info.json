@@ -1,6 +1,6 @@
 {
   "project": "Medieval Roam",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "godot": "4.7.2.stable",
   "renderer": "Compatibility",
   "web_threads": false,
@@ -34,7 +34,7 @@
     {
       "name": "index.html",
       "bytes": 5582,
-      "sha256": "fb6f5c6e6f94af6811d5c244ceffedb6936f196ee7b478134cbb46e3e523e91d"
+      "sha256": "22a430f705ab60835fcbadde438f078471a320491d56d04f1cb36a688a6e1f6a"
     },
     {
       "name": "index.icon.png",
@@ -48,8 +48,8 @@
     },
     {
       "name": "index.pck",
-      "bytes": 170572,
-      "sha256": "f0746ccf12096054285068af47e7657e0a2a2e489db80a6eef0dcf72a71464cb"
+      "bytes": 203440,
+      "sha256": "84f69d26f256294163fbdfcab1b053df55bcd9440b64ab981c9cd34741064dae"
     },
     {
       "name": "index.png",
@@ -77,5 +77,5 @@
       "sha256": "01c4d47342888cf61482cd1505edd2c578907988eba452b3e6a4e5c64bb87e4c"
     }
   ],
-  "total_bytes": 40040877
+  "total_bytes": 40073745
 }
