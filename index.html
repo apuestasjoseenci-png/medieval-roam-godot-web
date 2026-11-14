@@ -38,7 +38,7 @@ body {
 }
 
 #status {
-	background-color: #242424;
+	background-color: #10251f;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -92,8 +92,11 @@ body {
 		</style>
 		<link id="-gd-engine-icon" rel="icon" type="image/png" href="index.icon.png" />
 <link rel="apple-touch-icon" href="index.apple-touch-icon.png"/>
-<meta name="application-name" content="Medieval Roam 0.6.0">
-<style>html,body{overscroll-behavior:none;}canvas{touch-action:none;}</style>
+<meta name="application-name" content="Medieval Roam 0.7.0">
+<style>html,body{overscroll-behavior:none;}canvas{touch-action:none;}
+#status-splash.fullsize--true{object-fit:contain;box-sizing:border-box;height:calc(100% - 64px);max-height:calc(100% - 64px);bottom:64px;}
+#status-progress{bottom:max(16px,env(safe-area-inset-bottom));width:min(60vw,280px);height:4px;border:0;border-radius:4px;overflow:hidden;appearance:none;-webkit-appearance:none;background:#203b33;accent-color:#d4b16f;}
+#status-progress::-webkit-progress-bar{background:#203b33;}#status-progress::-webkit-progress-value{background:#d4b16f;}#status-progress::-moz-progress-bar{background:#d4b16f;}</style>
 	</head>
 	<body>
 		<canvas id="canvas">
@@ -112,7 +115,7 @@ body {
 
 		<script src="index.js"></script>
 		<script>
-const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":false,"executable":"index","experimentalVK":true,"fileSizes":{"index.pck":255228,"index.wasm":39514754},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4};
+const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":false,"executable":"index","experimentalVK":true,"fileSizes":{"index.pck":5878680,"index.wasm":39514754},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4};
 const GODOT_THREADS_ENABLED = false;
 const engine = new Engine(GODOT_CONFIG);
 
