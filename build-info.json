@@ -1,6 +1,9 @@
 {
   "project": "Medieval Roam",
-  "version": "0.7.0",
+  "version": "0.7.1",
+  "testing_stage": "kingdom_test_stage_1",
+  "save_key": "medieval_roam_stage_1",
+  "legacy_save_key": "medieval_roam_040",
   "godot": "4.7.2.stable",
   "renderer": "Compatibility",
   "web_threads": false,
@@ -33,8 +36,8 @@
     },
     {
       "name": "index.html",
-      "bytes": 6118,
-      "sha256": "5cb7f95586c07d558c62bbea4849a14f3873a500aa6d5f16ad7e58aa58ea9160"
+      "bytes": 8203,
+      "sha256": "62b6cef9d9d6808aaa77da6ee889f6d68bf896d8f562e7153b9328e15c4ad7ec"
     },
     {
       "name": "index.icon.png",
@@ -48,8 +51,8 @@
     },
     {
       "name": "index.pck",
-      "bytes": 5878680,
-      "sha256": "a88036f69aa3c751504b7188e9c17d4c9b1a69508144fdafdabc5cbf3efceb06"
+      "bytes": 5905336,
+      "sha256": "094f25ee6dc3a7f8357c2ff4ead21e2985f61d1d8e882fa558bf4d73b53f4061"
     },
     {
       "name": "index.png",
@@ -77,5 +80,5 @@
       "sha256": "01c4d47342888cf61482cd1505edd2c578907988eba452b3e6a4e5c64bb87e4c"
     }
   ],
-  "total_bytes": 48741290
+  "total_bytes": 48770031
 }

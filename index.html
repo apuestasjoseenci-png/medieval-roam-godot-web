@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, viewport-fit=cover">
 		<title>Medieval Roam</title>
 		<style>
 html, body, #canvas {
@@ -92,11 +92,21 @@ body {
 		</style>
 		<link id="-gd-engine-icon" rel="icon" type="image/png" href="index.icon.png" />
 <link rel="apple-touch-icon" href="index.apple-touch-icon.png"/>
-<meta name="application-name" content="Medieval Roam 0.7.0">
-<style>html,body{overscroll-behavior:none;}canvas{touch-action:none;}
-#status-splash.fullsize--true{object-fit:contain;box-sizing:border-box;height:calc(100% - 64px);max-height:calc(100% - 64px);bottom:64px;}
-#status-progress{bottom:max(16px,env(safe-area-inset-bottom));width:min(60vw,280px);height:4px;border:0;border-radius:4px;overflow:hidden;appearance:none;-webkit-appearance:none;background:#203b33;accent-color:#d4b16f;}
-#status-progress::-webkit-progress-bar{background:#203b33;}#status-progress::-webkit-progress-value{background:#d4b16f;}#status-progress::-moz-progress-bar{background:#d4b16f;}</style>
+<meta name="application-name" content="Medieval Roam 0.7.1">
+		<style>
+html,body { width:100%;height:100%;overscroll-behavior:none; }
+canvas { touch-action:none; }
+#status { position:fixed;inset:0;overflow:hidden;visibility:visible; }
+#status-splash.fullsize--true { width:100%;height:100%;max-width:none;max-height:none;margin:0;object-fit:cover;object-position:50% 43%; }
+#loading-bar { position:absolute;left:50%;transform:translateX(-50%);bottom:calc(20px + env(safe-area-inset-bottom,0px));width:min(76%,420px);height:30px;box-sizing:border-box;border:3px ridge #bc9445;border-radius:5px;background:#1b211d;box-shadow:0 0 0 3px #161914,0 4px 14px #000b,inset 0 0 5px #000;font:bold 16px Georgia,serif;color:#fff4ce; }
+#loading-bar::before,#loading-bar::after { content:'◆';position:absolute;top:2px;color:#dfb85c;text-shadow:0 2px #000; }
+#loading-bar::before { left:-15px; } #loading-bar::after { right:-15px; }
+#status-progress { display:block;position:absolute;inset:0;width:100%;height:100%;margin:0;border:0;border-radius:1px;appearance:none;-webkit-appearance:none;background:#1b211d; }
+#status-progress::-webkit-progress-bar { background:#1b211d; }
+#status-progress::-webkit-progress-value { background:linear-gradient(#f5db8b,#ad762a 55%,#e5bc59); }
+#status-progress::-moz-progress-bar { background:linear-gradient(#f5db8b,#ad762a 55%,#e5bc59); }
+#loading-percent { position:absolute;inset:0;display:grid;place-items:center;text-shadow:0 1px 3px #000,1px 0 #000,-1px 0 #000;pointer-events:none; }
+		</style>
 	</head>
 	<body>
 		<canvas id="canvas">
@@ -109,13 +119,13 @@ body {
 
 		<div id="status">
 			<img id="status-splash" class="show-image--true fullsize--true use-filter--true" src="index.png" alt="">
-			<progress id="status-progress"></progress>
+			<div id="loading-bar"><progress id="status-progress" max="100" value="0" aria-label="Carga del motor"></progress><span id="loading-percent" aria-hidden="true">0 %</span></div>
 			<div id="status-notice"></div>
 		</div>
 
 		<script src="index.js"></script>
 		<script>
-const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":false,"executable":"index","experimentalVK":true,"fileSizes":{"index.pck":5878680,"index.wasm":39514754},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4};
+const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":false,"executable":"index","experimentalVK":true,"fileSizes":{"index.pck":5905336,"index.wasm":39514754},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4};
 const GODOT_THREADS_ENABLED = false;
 const engine = new Engine(GODOT_CONFIG);
 
@@ -123,6 +133,20 @@ const engine = new Engine(GODOT_CONFIG);
 	const statusOverlay = document.getElementById('status');
 	const statusProgress = document.getElementById('status-progress');
 	const statusNotice = document.getElementById('status-notice');
+	const loadingBar = document.getElementById('loading-bar');
+	const percent = document.getElementById('loading-percent');
+	// Follow the visible browser viewport, including toolbar and rotation changes.
+	const viewport = window.visualViewport;
+	function fitViewport() {
+		statusOverlay.style.width = (viewport ? viewport.width : innerWidth) + 'px';
+		statusOverlay.style.height = (viewport ? viewport.height : innerHeight) + 'px';
+		statusOverlay.style.left = (viewport ? viewport.offsetLeft : 0) + 'px';
+		statusOverlay.style.top = (viewport ? viewport.offsetTop : 0) + 'px';
+	}
+	fitViewport();
+	window.addEventListener('resize', fitViewport);
+	viewport?.addEventListener('resize', fitViewport);
+	viewport?.addEventListener('scroll', fitViewport);
 
 	let initializing = true;
 	let statusMode = '';
@@ -132,12 +156,15 @@ const engine = new Engine(GODOT_CONFIG);
 			return;
 		}
 		if (mode === 'hidden') {
+			window.removeEventListener('resize', fitViewport);
+			viewport?.removeEventListener('resize', fitViewport);
+			viewport?.removeEventListener('scroll', fitViewport);
 			statusOverlay.remove();
 			initializing = false;
 			return;
 		}
 		statusOverlay.style.visibility = 'visible';
-		statusProgress.style.display = mode === 'progress' ? 'block' : 'none';
+		loadingBar.style.display = mode === 'progress' ? 'block' : 'none';
 		statusNotice.style.display = mode === 'notice' ? 'block' : 'none';
 		statusMode = mode;
 	}
@@ -208,9 +235,12 @@ const engine = new Engine(GODOT_CONFIG);
 				if (current > 0 && total > 0) {
 					statusProgress.value = current;
 					statusProgress.max = total;
+					percent.textContent = Math.floor(Math.min(1, current / total) * 100) + ' %';
 				} else {
-					statusProgress.removeAttribute('value');
-					statusProgress.removeAttribute('max');
+					// Unknown byte total has no truthful percentage. Keep one static bar.
+					statusProgress.value = 0;
+					statusProgress.max = 100;
+					percent.textContent = 'Cargando…';
 				}
 			},
 		}).then(() => {
