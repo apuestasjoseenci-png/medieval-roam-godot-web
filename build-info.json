@@ -1,6 +1,6 @@
 {
   "project": "Medieval Roam",
-  "version": "0.7.1",
+  "version": "0.8.0",
   "testing_stage": "kingdom_test_stage_1",
   "save_key": "medieval_roam_stage_1",
   "legacy_save_key": "medieval_roam_040",
@@ -37,7 +37,7 @@
     {
       "name": "index.html",
       "bytes": 8203,
-      "sha256": "62b6cef9d9d6808aaa77da6ee889f6d68bf896d8f562e7153b9328e15c4ad7ec"
+      "sha256": "920b9625a9c31f4755a7a3adfde360f85ebfb3e2582fab07c2ed78bc6961e31b"
     },
     {
       "name": "index.icon.png",
@@ -51,8 +51,8 @@
     },
     {
       "name": "index.pck",
-      "bytes": 5905336,
-      "sha256": "094f25ee6dc3a7f8357c2ff4ead21e2985f61d1d8e882fa558bf4d73b53f4061"
+      "bytes": 5958460,
+      "sha256": "feb8ff2527d84741d71631a1ced0e1067b079842b8ca1c0c978e932e520cd773"
     },
     {
       "name": "index.png",
@@ -80,5 +80,5 @@
       "sha256": "01c4d47342888cf61482cd1505edd2c578907988eba452b3e6a4e5c64bb87e4c"
     }
   ],
-  "total_bytes": 48770031
+  "total_bytes": 48823155
 }
