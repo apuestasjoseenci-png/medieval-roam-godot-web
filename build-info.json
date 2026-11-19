@@ -37,7 +37,7 @@
     {
       "name": "index.html",
       "bytes": 11505,
-      "sha256": "239d32631c52a4e6edb0f1e2a463bf837d3623c83f7683fc4d85ebff5088bf54"
+      "sha256": "8656e92ab304862f0a5effbf72952c8cf0ab9334bbb4027e6df7193c42f76a90"
     },
     {
       "name": "index.icon.png",
@@ -51,8 +51,8 @@
     },
     {
       "name": "index.pck",
-      "bytes": 7672728,
-      "sha256": "7bee9afaa2f017093ee7f5c3ab48da483d36c780b691aec6d7ba6331c4d630af"
+      "bytes": 7682556,
+      "sha256": "61ee0aba98fa862191948b5ac27426d1dd871471fd6d84a8c35a5f7f9582b56c"
     },
     {
       "name": "index.png",
@@ -80,11 +80,12 @@
       "sha256": "01c4d47342888cf61482cd1505edd2c578907988eba452b3e6a4e5c64bb87e4c"
     }
   ],
-  "total_bytes": 50542687,
+  "total_bytes": 50552515,
   "source_reference": "fcf75066869ee60faf05dc0f7c693452de257d41",
   "candidate": false,
   "published": true,
   "combat_view": "pixel25d",
   "portrait": true,
-  "combat_feedback": true
+  "combat_feedback": true,
+  "ui_theme": true
 }
