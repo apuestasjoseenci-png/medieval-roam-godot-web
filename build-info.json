@@ -37,7 +37,7 @@
     {
       "name": "index.html",
       "bytes": 11505,
-      "sha256": "7a9c46c0d9933bb347f29827b9efc017629e9eb73f99c733da77ef73a28db1aa"
+      "sha256": "c49a2531e89964b0dcc6b0c3471893a2c4f1814d3ac165261af5e82c038d7b3f"
     },
     {
       "name": "index.icon.png",
@@ -51,8 +51,8 @@
     },
     {
       "name": "index.pck",
-      "bytes": 7687988,
-      "sha256": "f913aabf9fda2140a2c30c49a3c2a01a9e60d6593bc60c4eda8962c384441de4"
+      "bytes": 7695320,
+      "sha256": "65f64e79e1b77d6f305b1c192fbec1481e1f42a82894fa6c585fac9e3437a61f"
     },
     {
       "name": "index.png",
@@ -80,7 +80,7 @@
       "sha256": "01c4d47342888cf61482cd1505edd2c578907988eba452b3e6a4e5c64bb87e4c"
     }
   ],
-  "total_bytes": 50557947,
+  "total_bytes": 50565279,
   "source_reference": "fcf75066869ee60faf05dc0f7c693452de257d41",
   "candidate": false,
   "published": true,
