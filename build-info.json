@@ -16,8 +16,8 @@
   "files": [
     {
       "name": "geolocation.js",
-      "bytes": 3690,
-      "sha256": "2cb40cb6aee75f93823f75f8f7c1256b70cd98f333125d59a6169e00893ff5b4"
+      "bytes": 5652,
+      "sha256": "ad812f924113279d72bac7b14a09260e130a67e6dc4af58a1733b3d90372a403"
     },
     {
       "name": "index.apple-touch-icon.png",
@@ -36,8 +36,8 @@
     },
     {
       "name": "index.html",
-      "bytes": 8203,
-      "sha256": "d5b0c854dad7bbfe8a1ad892b7d2e1b50a6d63d9e4f0ec84813942e23b3e70da"
+      "bytes": 11505,
+      "sha256": "687dfa5a9897852bef2f35f0c1176aa49f931eac40aff7e2229790bbb29ad2ff"
     },
     {
       "name": "index.icon.png",
@@ -51,8 +51,8 @@
     },
     {
       "name": "index.pck",
-      "bytes": 5959068,
-      "sha256": "9ff2e8eac92cf94d5e3b7073c0a21e1e41336c9c1e4780c67485f195dfd0044e"
+      "bytes": 7671368,
+      "sha256": "fa28098e6f54623f8baa902285a7cc75568ad3ac442c9630b2136f0940ffddb9"
     },
     {
       "name": "index.png",
@@ -80,5 +80,10 @@
       "sha256": "01c4d47342888cf61482cd1505edd2c578907988eba452b3e6a4e5c64bb87e4c"
     }
   ],
-  "total_bytes": 48823763
+  "total_bytes": 50541327,
+  "source_reference": "fcf75066869ee60faf05dc0f7c693452de257d41",
+  "candidate": false,
+  "published": true,
+  "combat_view": "pixel25d",
+  "portrait": true
 }

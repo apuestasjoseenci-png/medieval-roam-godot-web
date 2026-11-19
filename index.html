@@ -109,9 +109,9 @@ canvas { touch-action:none; }
 		</style>
 	</head>
 	<body>
-		<canvas id="canvas">
+		<div id="portrait-frame"><canvas id="canvas">
 			Your browser does not support the canvas tag.
-		</canvas>
+		</canvas></div>
 
 		<noscript>
 			Your browser does not support JavaScript.
@@ -123,9 +123,56 @@ canvas { touch-action:none; }
 			<div id="status-notice"></div>
 		</div>
 
+<style>
+body { background:#10251f; }
+#portrait-frame { position:fixed;overflow:hidden; }
+#map-attribution { left:var(--portrait-left,0px)!important;right:auto!important;bottom:auto!important;top:var(--portrait-attribution-top,0px)!important;width:378px;box-sizing:border-box;transform:scale(var(--portrait-scale,1));transform-origin:top left; }
+#portrait-frame canvas { width:100%;height:100%;touch-action:none; }
+#portrait-safe { position:fixed;visibility:hidden;pointer-events:none;padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left); }
+</style>
+<div id="portrait-safe" aria-hidden="true"></div>
+<div id="portrait-hint" role="status" hidden>Vuelve a vertical para usar controles más cómodos</div>
+<style>#portrait-hint {position:fixed;z-index:40;pointer-events:none;background:#172f29ed;color:#f4e8ca;font:13px Georgia,serif;text-align:center;padding:8px;box-sizing:border-box;border:1px solid #697754;border-radius:8px;max-width:220px;}#portrait-hint[hidden]{display:none;}</style>
+<script>
+// No CSS rotation: Godot maps touches through the canvas bounding rectangle.
+// Policy 0 gives this shell ownership of size; rotation never restarts the engine.
+(() => {
+ const canvas=document.getElementById('canvas'),frame=document.getElementById('portrait-frame');
+ globalThis.MedievalPortrait={safeInsets:[0,0,0,0],lock:'unavailable'};
+ function fit() {
+  const v=window.visualViewport,s=getComputedStyle(document.getElementById('portrait-safe'));
+  const [l,t,r,b]=[s.paddingLeft,s.paddingTop,s.paddingRight,s.paddingBottom].map(n=>parseFloat(n)||0);
+  const w=Math.max(1,(v?.width??innerWidth)-l-r),h=Math.max(1,(v?.height??innerHeight)-t-b);
+  const landscape=w>h,ratio=landscape?390/844:w/h;
+  const width=Math.min(w,h*ratio),height=width/ratio;
+  Object.assign(frame.style,{left:((v?.offsetLeft??0)+l+(w-width)/2)+'px',top:((v?.offsetTop??0)+t)+'px',width:width+'px',height:height+'px'});
+  document.documentElement.style.setProperty('--portrait-left',frame.style.left);
+  document.documentElement.style.setProperty('--portrait-attribution-top',((v?.offsetTop??0)+t+height-30*width/390)+'px');
+  document.documentElement.style.setProperty('--portrait-scale',width/390);
+  const logicalHeight=landscape?844:Math.max(391,Math.round(390/ratio));
+  if(canvas.width!==390)canvas.width=390;
+  if(canvas.height!==logicalHeight)canvas.height=logicalHeight;
+  Object.assign(MedievalPortrait,{width:390,height:logicalHeight,contained:landscape});
+  const hint=document.getElementById('portrait-hint'),gutter=(w-width)/2;
+  hint.hidden=!(landscape&&64*width/390<44&&gutter>=90);
+  Object.assign(hint.style,{left:((v?.offsetLeft??0)+l+8)+'px',top:((v?.offsetTop??0)+t+Math.max(0,(h-70)/2))+'px',width:Math.min(220,gutter-16)+'px'});
+ }
+ async function lock() {
+  if(!screen.orientation?.lock)return;
+  try { await screen.orientation.lock('portrait');MedievalPortrait.lock='locked'; }
+  catch { MedievalPortrait.lock='container'; }
+ }
+ fit();lock();
+ window.addEventListener('resize',fit);
+ window.visualViewport?.addEventListener('resize',fit);
+ window.visualViewport?.addEventListener('scroll',fit);
+ document.addEventListener('fullscreenchange',lock);
+ document.addEventListener('pointerup',lock);
+})();
+</script>
 		<script src="index.js"></script>
 		<script>
-const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":false,"executable":"index","experimentalVK":true,"fileSizes":{"index.pck":5959068,"index.wasm":39514754},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4};
+const GODOT_CONFIG = {"args":[],"canvasResizePolicy":0,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":false,"executable":"index","experimentalVK":true,"fileSizes":{"index.pck":7671368,"index.wasm":39514754},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4};
 const GODOT_THREADS_ENABLED = false;
 const engine = new Engine(GODOT_CONFIG);
 
